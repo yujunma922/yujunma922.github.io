@@ -2,67 +2,229 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Yujun Ma, PhD</title>
+
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      line-height: 1.6;
-      padding: 0 20px;
+    :root{
+      --bg:#0b1020;
+      --card:#0f172a;
+      --text:#e5e7eb;
+      --muted:#a5b4fc;
+      --accent:#38bdf8;
+      --accent2:#a78bfa;
+      --line: rgba(255,255,255,.12);
     }
-    h1 { margin-bottom: 0; }
-    a { color: #1a73e8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    hr { margin: 30px 0; }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(56,189,248,.30), transparent 60%),
+        radial-gradient(900px 500px at 85% 0%, rgba(167,139,250,.28), transparent 55%),
+        radial-gradient(900px 700px at 60% 110%, rgba(34,211,238,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1050px; margin:0 auto; padding:36px 18px 60px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px; border:1px solid var(--line); border-radius:16px;
+      background: rgba(15,23,42,.60);
+      backdrop-filter: blur(8px);
+      position:sticky; top:14px; z-index:10;
+    }
+    .brand{font-weight:700; letter-spacing:.2px}
+    .nav a{margin-left:14px; color:#c7d2fe}
+    .hero{display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; margin-top:18px}
+    @media (max-width: 860px){ .hero{grid-template-columns:1fr} .topbar{position:relative; top:auto}}
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: rgba(15,23,42,.62);
+      backdrop-filter: blur(10px);
+      padding:22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    h1{margin:0 0 6px; font-size:44px; line-height:1.1}
+    .subtitle{color:#c7d2fe; font-size:16px; line-height:1.5}
+    .pillrow{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
+    .pill{
+      border:1px solid var(--line);
+      padding:8px 12px; border-radius:999px;
+      background: rgba(2,6,23,.35);
+      color:#e0e7ff; font-size:13px;
+    }
+    .links{margin-top:14px; display:flex; flex-wrap:wrap; gap:12px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(2,6,23,.35);
+      color:#e5e7eb;
+    }
+    .btn:hover{border-color: rgba(56,189,248,.55); text-decoration:none}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .mini h3{margin:0 0 6px; font-size:16px}
+    .mini p{margin:0; color:#c7d2fe; font-size:14px; line-height:1.45}
+    .section{margin-top:22px}
+    .section h2{
+      margin:0 0 10px; font-size:18px; letter-spacing:.2px;
+      color:#e0e7ff;
+    }
+    .divider{height:1px; background:var(--line); margin:16px 0}
+    .proj{
+      display:grid; grid-template-columns: 1fr 1.1fr; gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .proj{grid-template-columns:1fr} }
+    .proj img{
+      width:100%; height:240px; object-fit:cover;
+      border-radius:14px; border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+    }
+    .tag{display:inline-block; font-size:12px; color:#dbeafe;
+      border:1px solid rgba(56,189,248,.35);
+      background: rgba(56,189,248,.10);
+      padding:4px 10px; border-radius:999px; margin-right:8px; margin-top:8px
+    }
+    .foot{margin-top:22px; color:#94a3b8; font-size:13px}
+    .muted{color:#c7d2fe}
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<h1>Yujun Ma, PhD</h1>
+    <div class="topbar">
+      <div class="brand">Yujun Ma</div>
+      <div class="nav">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
 
-<p>
-Postdoctoral Research Fellow<br>
-Department of Pathology and Laboratory Medicine<br>
-University of California, Irvine
-</p>
+    <div class="hero">
+      <div class="card">
+        <h1>Yujun Ma, PhD</h1>
+        <div class="subtitle">
+          Postdoctoral Research Fellow <span class="muted">·</span> Department of Pathology and Laboratory Medicine <span class="muted">·</span> University of California, Irvine
+        </div>
 
-<p>
-📧 <a href="mailto:yujunm5@hs.uci.edu">yujunm5@hs.uci.edu</a><br>
-<a href="https://scholar.google.com">Google Scholar</a> |
-<a href="https://github.com/yujunma922">GitHub</a> |
-<a href="https://www.linkedin.com/in/yujun-monica-ma-051a53252">LinkedIn</a>
-</p>
+        <div class="pillrow">
+          <span class="pill">Multimodal learning</span>
+          <span class="pill">ICU time-series</span>
+          <span class="pill">Policy learning</span>
+          <span class="pill">Computational pathology</span>
+          <span class="pill">Generative models</span>
+        </div>
 
-<hr>
+        <div class="links">
+          <a class="btn" href="mailto:yujunm5@hs.uci.edu">📧 Email</a>
+          <a class="btn" href="https://github.com/yujunma922" target="_blank" rel="noreferrer">🐙 GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/yujun-monica-ma-051a53252" target="_blank" rel="noreferrer">in LinkedIn</a>
+          <!-- Replace Google Scholar link with your exact profile when you have it -->
+          <a class="btn" href="https://scholar.google.com" target="_blank" rel="noreferrer">🎓 Google Scholar</a>
+        </div>
 
-<h2>Research Interests</h2>
-<ul>
-  <li>Multimodal and temporal deep learning</li>
-  <li>Medical AI and clinical decision support</li>
-  <li>Computational pathology and medical imaging</li>
-  <li>Generative models and interpretability</li>
-</ul>
+        <div class="divider"></div>
 
-<hr>
+        <div id="research" class="section">
+          <h2>Research</h2>
+          <div class="muted">
+            I develop multimodal and temporal deep learning methods for clinical decision support and biomedical imaging, with a focus on robust modeling and interpretable prediction over time.
+          </div>
 
-<h2>Education</h2>
-<p>
-<strong>Ph.D., Computer Science</strong><br>
-Massey University, New Zealand (2020–2024)<br>
-<em>Thesis:</em> Novel deep learning based approaches for video based action recognition
-</p>
+          <div class="grid3">
+            <div class="mini card" style="padding:16px">
+              <h3>Clinical time-series</h3>
+              <p>Representation learning and evaluation for ICU trajectories, including time-varying AUROC and drift-aware cohorts.</p>
+            </div>
+            <div class="mini card" style="padding:16px">
+              <h3>Policy learning</h3>
+              <p>Off-policy evaluation and KL-constrained policy optimization for antibiotic decision support.</p>
+            </div>
+            <div class="mini card" style="padding:16px">
+              <h3>Computational pathology</h3>
+              <p>Image-to-image translation and WSI pipelines for staining/destaining and downstream detection/segmentation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<p>
-<strong>M.Sc., Communication Engineering</strong><br>
-Hohai University, China (2017–2019)
-</p>
+      <div class="card">
+        <h2 style="margin:0 0 10px">Highlights</h2>
+        <div class="muted">Add 2–3 figures to make the page visual. Upload images to <code>assets/</code> and update the filenames below.</div>
 
-<p>
-<strong>B.Sc., Communication Engineering</strong><br>
-Hohai University, China (2013–2017)
-</p>
+        <div class="divider"></div>
 
+        <!-- Replace these with real images you upload -->
+        <img src="assets/Yujun_headshot.png" alt="ABICx figure (replace filename)" onerror="this.style.display='none'">
+        <div style="height:10px"></div>
+        <img src="assets/pathology.png" alt="Pathology figure (replace filename)" onerror="this.style.display='none'">
+
+        <div class="foot">Tip: name your files <span class="muted">abicx.png</span> and <span class="muted">pathology.png</span> to match the placeholders above.</div>
+      </div>
+    </div>
+
+    <div id="projects" class="section card" style="margin-top:18px">
+      <h2>Projects</h2>
+
+      <div class="proj">
+        <div>
+          <span class="tag">ABICx</span><span class="tag">ICU</span><span class="tag">Policy learning</span>
+          <h3 style="margin:10px 0 6px">Antibiotic policy optimization</h3>
+          <div class="muted">
+            End-to-end pipeline for representation learning on ICU trajectories and KL-constrained policy optimization for antibiotic administration.
+          </div>
+        </div>
+        <div>
+          <img src="assets/abicx.png" alt="ABICx overview" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="proj">
+        <div>
+          <span class="tag">Pix2Pix</span><span class="tag">Histology</span><span class="tag">Staining</span>
+          <h3 style="margin:10px 0 6px">Computational staining & destaining</h3>
+          <div class="muted">
+            Generative modeling for computational H&E staining/destaining of prostate core tissue images, plus patch generation and reconstruction pipelines.
+          </div>
+        </div>
+        <div>
+          <img src="assets/pathology.png" alt="Computational pathology" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+
+    <div id="education" class="section card" style="margin-top:18px">
+      <h2>Education</h2>
+      <div class="muted">
+        <strong>Ph.D., Computer Science</strong> — Massey University (2020–2024)<br>
+        <strong>M.Sc., Communication Engineering</strong> — Hohai University (2017–2019)<br>
+        <strong>B.Sc., Communication Engineering</strong> — Hohai University (2013–2017)
+      </div>
+    </div>
+
+    <div id="contact" class="section card" style="margin-top:18px">
+      <h2>Contact</h2>
+      <div class="muted">
+        Email: <a href="mailto:yujunm5@hs.uci.edu">yujunm5@hs.uci.edu</a>
+      </div>
+      <div class="foot">© <span id="year"></span> Yujun Ma</div>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
