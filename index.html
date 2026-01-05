@@ -13,11 +13,13 @@
   --border:rgba(255,255,255,.12);
   --text:rgba(255,255,255,.92);
   --muted:rgba(255,255,255,.72);
+  --muted2:rgba(255,255,255,.60);
   --accent:#6ee7ff;
   --shadow:0 20px 60px rgba(0,0,0,.35);
   --radius:22px;
 }
 
+html{scroll-behavior:smooth;}
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;
@@ -40,7 +42,6 @@ body{
   border-radius:999px;
   box-shadow:var(--shadow);
 }
-
 .nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;}
 .nav a:hover{color:var(--text);}
 
@@ -57,10 +58,9 @@ body{
 /* ---------- HERO ---------- */
 .hero h1{
   margin:0 0 8px;
-  font-size:48px;   /* 👈 adjust name size here */
+  font-size:46px;  /* adjust title size here */
   line-height:1.05;
 }
-
 .sub{color:var(--muted);font-size:18px;line-height:1.55;}
 
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
@@ -76,25 +76,40 @@ body{
 }
 .btn:hover{background:rgba(0,0,0,.28);}
 
-/* ---------- ABOUT ---------- */
-.aboutGrid{
-  display:grid;
-  grid-template-columns:160px 1fr; /* 👈 headshot size */
-  gap:16px;
+/* ---------- EDUCATION ---------- */
+.edu{
+  margin-top:18px;
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:14px;
 }
+.edu h3{
+  margin:0 0 8px;
+  font-size:14px;
+  letter-spacing:.18em;
+  color:var(--muted);
+}
+.edu ul{margin:0;padding-left:18px;}
+.edu li{margin-bottom:6px;color:var(--muted);}
 
-.imgBox{
-  width:160px;height:160px;        /* 👈 headshot size */
+/* ---------- ABOUT (true wrap) ---------- */
+.aboutWrap h2{margin:0 0 10px;font-size:28px;}
+.aboutWrap p{margin:0 0 10px;color:var(--muted);line-height:1.75;}
+.aboutImg{
+  float:left;                 /* ✅ text wraps around */
+  width:150px;                /* adjust headshot size here */
+  height:150px;               /* adjust headshot size here */
+  margin:4px 16px 10px 0;     /* space around image */
   border-radius:18px;
   overflow:hidden;
   border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
 }
-.imgBox img{width:100%;height:100%;object-fit:cover;}
+.aboutImg img{width:100%;height:100%;object-fit:cover;display:block;}
+.clearfix::after{content:"";display:block;clear:both;}
 
 .section{margin-top:28px;}
 .section h2{margin:0 0 10px;font-size:28px;}
 .section p{margin:0;color:var(--muted);line-height:1.75;}
-
 .divider{height:1px;background:rgba(255,255,255,.12);margin:26px 0;}
 
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
@@ -115,34 +130,25 @@ body{
   border-radius:var(--radius);
   padding:20px;
 }
-
-/* Project 3 layout */
-.proj3Grid{
+.projGrid{
   display:grid;
-  grid-template-columns:1.15fr .85fr;
+  grid-template-columns:1.1fr .9fr;
   gap:18px;
+  align-items:start;
 }
 
-.proj3Figures{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-/* Figure cards */
 .figCard{
   border-radius:18px;
   overflow:hidden;
   border:1px solid var(--border);
   background:#ffffff;
 }
-
 .figCard img{
   width:100%;
-  height:150px;          /* 👈 figure size */
+  height:190px;         /* adjust figure height here */
   object-fit:contain;
+  display:block;
 }
-
 .caption{
   padding:10px 12px;
   font-size:13px;
@@ -150,25 +156,38 @@ body{
   background:#f4f6fb;
 }
 
-/* ---------- EDUCATION ---------- */
-.edu{
-  margin-top:18px;
-  border-top:1px solid rgba(255,255,255,.15);
-  padding-top:14px;
+/* Project 3: text left, stacked figures right */
+.proj3Grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
 }
-.edu h3{
-  margin:0 0 8px;
-  font-size:14px;
-  letter-spacing:.18em;
-  color:var(--muted);
+.proj3Figures{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
-.edu li{margin-bottom:6px;color:var(--muted);}
+.proj3Figures .figCard img{
+  height:150px; /* ✅ smaller than project1/2 */
+}
+
+/* Placeholder card */
+.placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:190px;
+  color:#445;
+  background:linear-gradient(180deg,#f7f9ff,#eef2ff);
+  padding:18px;
+}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
-  .grid2,.proj3Grid{grid-template-columns:1fr;}
-  .aboutGrid{grid-template-columns:1fr;}
-  .imgBox{width:100%;height:220px;}
+  .grid2,.projGrid,.proj3Grid{grid-template-columns:1fr;}
+  .aboutImg{float:none;width:100%;height:220px;margin:0 0 12px 0;}
+  .proj3Figures .figCard img{height:auto;}
   .figCard img{height:auto;}
 }
 </style>
@@ -177,112 +196,184 @@ body{
 <body>
 <div class="wrap">
 
-<div class="nav">
-  <strong>Yujun Ma</strong>
-  <div>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
-
-<div class="grid2">
-  <div class="card hero">
-    <h1>Yujun Ma, PhD</h1>
-    <div class="sub">
-      Postdoctoral Research Fellow · Department of Pathology and Laboratory Medicine · University of California, Irvine
-    </div>
-
-    <div class="btns">
-      <a class="btn" href="mailto:yujunm5@hs.uci.edu">📧 Email</a>
-      <a class="btn" href="https://github.com/yujunma922">🐙 GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/yujun-monica-ma-051a53252/">in LinkedIn</a>
-      <a class="btn" href="https://scholar.google.com/citations?hl=en&user=ptRBRTAAAAAJ&view_op=list_works&sortby=pubdate">🎓 Google Scholar</a>
-    </div>
-
-    <div class="edu">
-      <h3>EDUCATION</h3>
-      <ul>
-        <li><strong>Ph.D.</strong> Computer Science, Massey University</li>
-        <li><strong>M.S.</strong> (add if you want)</li>
-        <li><strong>B.S.</strong> (add if you want)</li>
-      </ul>
+  <div class="nav">
+    <strong>Yujun Ma</strong>
+    <div>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 
-  <div class="card">
-    <div class="aboutGrid">
-      <div class="imgBox">
+  <div class="grid2">
+    <!-- LEFT: HERO -->
+    <div class="card hero">
+      <h1>Yujun Ma, PhD</h1>
+      <div class="sub">
+        Postdoctoral Research Fellow · Department of Pathology and Laboratory Medicine · University of California, Irvine
+      </div>
+
+      <div class="btns">
+        <a class="btn" href="mailto:yujunm5@hs.uci.edu">📧 Email</a>
+        <a class="btn" href="https://github.com/yujunma922" target="_blank" rel="noopener">🐙 GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/yujun-monica-ma-051a53252/" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="btn" href="https://scholar.google.com/citations?hl=en&user=ptRBRTAAAAAJ&view_op=list_works&sortby=pubdate"
+           target="_blank" rel="noopener">🎓 Google Scholar</a>
+      </div>
+
+      <div class="edu">
+        <h3>EDUCATION</h3>
+        <ul>
+          <li><strong>Ph.D.</strong> Computer Science, Massey University</li>
+          <li><strong>M.S.</strong> (add if you want)</li>
+          <li><strong>B.S.</strong> (add if you want)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: ABOUT with wrapped headshot -->
+    <div class="card aboutWrap clearfix">
+      <h2>About</h2>
+
+      <div class="aboutImg">
         <img src="assets/Yujun_headshot.jpg" alt="Yujun Ma headshot">
       </div>
-      <div>
-        <h2>About</h2>
-        <p>
-          I work on multimodal and temporal deep learning spanning clinical time-series modeling (EHR),
-          medical imaging and computational pathology, and video understanding.
-        </p>
-        <p style="margin-top:10px;">
-          My recent work includes robust representation learning over time, generative modeling for
-          computational staining/destaining, and video-based action recognition and captioning.
-        </p>
-        <div style="margin-top:12px;color:var(--muted);font-size:13px;">Last updated: 2026</div>
-      </div>
+
+      <p>
+        I work on multimodal and temporal deep learning spanning clinical time-series modeling (EHR),
+        medical imaging and computational pathology, and video understanding.
+      </p>
+
+      <p>
+        My recent work includes robust representation learning over time, generative modeling for
+        computational staining/destaining, and video-based action recognition and captioning.
+      </p>
+
+      <div style="margin-top:10px;color:var(--muted2);font-size:13px;">Last updated: 2026</div>
     </div>
   </div>
-</div>
 
-<div class="section" id="projects">
-  <div class="divider"></div>
-
-  <div class="proj">
-    <div class="proj3Grid">
-
-      <div>
-        <h2>Project 3 — Video Understanding (Action Recognition & Video Captioning)</h2>
-        <p>
-          I develop models for video-based understanding, including action recognition and video captioning.
-          My work explores spatiotemporal representation learning and multimodal alignment, with model designs
-          that improve recognition and description of complex actions in videos.
-        </p>
-
-        <div class="chips">
-          <div class="chip">Action recognition</div>
-          <div class="chip">Video captioning</div>
-          <div class="chip">Spatiotemporal learning</div>
-          <div class="chip">Multimodal</div>
-        </div>
-      </div>
-
-      <div class="proj3Figures">
-        <div class="figCard">
-          <img src="assets/MFSTmodel_fig.png">
-          <div class="caption">MFST model</div>
-        </div>
-
-        <div class="figCard">
-          <img src="assets/E_CMAT_fig.png">
-          <div class="caption">E-CMAT</div>
-        </div>
-
-        <div class="figCard">
-          <img src="assets/VC_fig.png">
-          <div class="caption">Video captioning</div>
-        </div>
-      </div>
-
-    </div>
+  <!-- Research -->
+  <div class="section" id="research">
+    <div class="divider"></div>
+    <h2>Research</h2>
+    <p>
+      My research focuses on learning reliable, interpretable representations from multimodal data, with an emphasis on temporal modeling.
+      I develop methods for clinical decision support using EHR trajectories, generative modeling for computational pathology pipelines,
+      and video understanding for action recognition and captioning.
+    </p>
   </div>
-</div>
 
-<div class="section" id="contact">
-  <div class="divider"></div>
-  <h2>Contact</h2>
-  <p>Email: <a style="color:var(--accent);" href="mailto:yujunm5@hs.uci.edu">yujunm5@hs.uci.edu</a></p>
-</div>
+  <!-- Projects -->
+  <div class="section" id="projects">
+    <div class="divider"></div>
+    <h2>Projects</h2>
 
-<footer style="margin-top:26px;text-align:center;color:var(--muted);font-size:13px;">
-© 2026 Yujun Ma · GitHub Pages
-</footer>
+    <!-- Project 1 -->
+    <div class="proj">
+      <div class="projGrid">
+        <div>
+          <h2 style="margin:0 0 10px;">Project 1 — EHR Time-series Modeling (Clinical Decision Support)</h2>
+          <p style="margin:0;color:var(--muted);line-height:1.75;">
+            I develop temporal models for ICU decision support using electronic health records, focusing on outcome prediction,
+            time-aware evaluation, and policy learning with clinically grounded constraints.
+          </p>
+          <div class="chips">
+            <div class="chip">EHR</div>
+            <div class="chip">Temporal modeling</div>
+            <div class="chip">Clinical decision support</div>
+            <div class="chip">Policy learning</div>
+          </div>
+        </div>
+
+        <div class="figCard">
+          <div class="placeholder">
+            Leave this slot for an EHR figure later<br>(e.g., AUROC over time / pipeline / policy learning).
+          </div>
+          <div class="caption">Future figure</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="proj">
+      <div class="projGrid">
+        <div>
+          <h2 style="margin:0 0 10px;">Project 2 — Computational Staining (Generative Modeling in Pathology)</h2>
+          <p style="margin:0;color:var(--muted);line-height:1.75;">
+            I build image-to-image translation pipelines for computational staining and destaining of prostate core tissue images,
+            including patch generation and reconstruction workflows for high-resolution images. This connects generative modeling with
+            practical pathology imaging pipelines.
+          </p>
+          <div class="chips">
+            <div class="chip">Computational pathology</div>
+            <div class="chip">Generative models</div>
+            <div class="chip">Pix2Pix</div>
+            <div class="chip">WSI / patch pipeline</div>
+          </div>
+        </div>
+
+        <div class="figCard">
+          <img src="assets/computational_staining_fig.png" alt="Computational staining figure">
+          <div class="caption">Computational staining</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="proj">
+      <div class="proj3Grid">
+        <div>
+          <h2 style="margin:0 0 10px;">Project 3 — Video Understanding (Action Recognition & Video Captioning)</h2>
+          <p style="margin:0;color:var(--muted);line-height:1.75;">
+            I develop models for video-based understanding, including action recognition and video captioning. My work explores
+            spatiotemporal representation learning and multimodal alignment, with model designs that improve recognition and
+            description of complex actions in videos.
+          </p>
+
+          <div class="chips">
+            <div class="chip">Action recognition</div>
+            <div class="chip">Video captioning</div>
+            <div class="chip">Spatiotemporal learning</div>
+            <div class="chip">Multimodal</div>
+          </div>
+
+          <!-- You said you will add more text around Project 3: perfect.
+               Just add more <p> blocks here and it will stay "half text / half figures". -->
+          <!-- <p style="margin-top:12px;color:var(--muted);line-height:1.75;">More text here...</p> -->
+        </div>
+
+        <div class="proj3Figures">
+          <div class="figCard">
+            <img src="assets/MFSTmodel_fig.png" alt="MFST model figure">
+            <div class="caption">MFST model</div>
+          </div>
+
+          <div class="figCard">
+            <img src="assets/E_CMAT_fig.png" alt="E-CMAT figure">
+            <div class="caption">E-CMAT</div>
+          </div>
+
+          <div class="figCard">
+            <img src="assets/VC_fig.png" alt="Video captioning figure">
+            <div class="caption">Video captioning</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contact -->
+  <div class="section" id="contact">
+    <div class="divider"></div>
+    <h2>Contact</h2>
+    <p>Email: <a style="color:var(--accent);" href="mailto:yujunm5@hs.uci.edu">yujunm5@hs.uci.edu</a></p>
+  </div>
+
+  <footer style="margin-top:26px;text-align:center;color:var(--muted2);font-size:13px;">
+    © 2026 Yujun Ma · Built with GitHub Pages
+  </footer>
 
 </div>
 </body>
